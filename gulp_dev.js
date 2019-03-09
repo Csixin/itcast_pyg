@@ -56,7 +56,7 @@ gulp.task('js', () => {
 gulp.task('html', () => {
     return (
         gulp
-        .src("src/index.html")
+        .src("src/*.html")
         .pipe(
             fileInclude({
                 prefix: "@@",

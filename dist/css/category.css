@@ -1,0 +1,83 @@
+.pyg_view {
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pyg_view .left_box {
+  width: 80px;
+  overflow: scroll;
+}
+.pyg_view .left_box .left_memu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pyg_view .left_box .left_memu li {
+  height: 40px;
+  line-height: 40px;
+  background-color: #eee;
+  text-align: center;
+}
+.pyg_view .left_box .left_memu li.active {
+  background-color: #fff;
+  border-left: 3px solid #00f;
+}
+.pyg_view .left_box .left_memu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #000;
+}
+.pyg_view .right_box {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #fff;
+  overflow: scroll;
+}
+.pyg_view .right_box > ul .right_item .item_title {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  color: #f00;
+  font-weight: 600;
+}
+.pyg_view .right_box > ul .right_item .item_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.pyg_view .right_box > ul .right_item .item_list li {
+  width: 33.33%;
+}
+.pyg_view .right_box > ul .right_item .item_list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.pyg_view .right_box > ul .right_item .item_list li a img {
+  width: 80%;
+}
+.pyg_view .right_box > ul .right_item .item_list li a .item_name {
+  color: #000;
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=category.css.map */

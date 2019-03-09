@@ -5,6 +5,8 @@ $(function () {
 
   function init() {
     swiperDate();
+    getCates();
+    getPro();
   }
 
   function swiperDate() {
@@ -24,6 +26,38 @@ $(function () {
             interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
 
           });
+        }
+      }
+    });
+  }
+
+  function getCates() {
+    $.get("http://api.pyg.ak48.xyz/api/public/v1/home/catitems", function (res) {
+      if (res.meta.status == 200) {
+        var html = "";
+
+        for (var i = 0; i < res.data.length; i++) {
+          html += "\n              <a href=\"javascript:;\">\n                <img src=\"".concat(res.data[i].image_src, "\" alt=\"\">\n              </a>\n              ");
+        }
+
+        $('.pyg_cates').html(html);
+      }
+    });
+  }
+
+  function getPro() {
+    $.ajax({
+      type: "get",
+      url: "http://api.pyg.ak48.xyz/api/public/v1/home/goodslist",
+      dataType: "json",
+      success: function success(res) {
+        if (res.meta.status == 200) {
+          var data = res.data;
+          var html = template("proTpl", {
+            arr: data
+          });
+          console.log(html);
+          $('.pyg_items').html(html);
         }
       }
     });
