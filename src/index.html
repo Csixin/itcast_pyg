@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div class="loadding"></div>
     @@include("pyg_header.html")
   <div class="pyg_view">
     <!-- 轮播图 开始 -->
@@ -56,7 +57,7 @@
           <ul>
             {{each value1.goods value2 index2}}
             <li>
-              <a href="javascript:;">
+              <a href="goods_detail.html?goods_id={{value2.goods_id}}">
                 <img src="{{value2.goods_small_logo}}" alt="">
                 <div>{{value2.goods_name}}</div>
                 <div>￥{{value2.goods_price}}</div>

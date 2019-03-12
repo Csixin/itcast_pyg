@@ -1,4 +1,5 @@
 $(function () {
+    //将要发送的数据作为全局变量，方便操作
     let sendDate = {
         query: "",
         cid: getUrl("cid"),
@@ -6,6 +7,17 @@ $(function () {
         pagesize: "5"
     }
     let totalPages;
+
+    //在mui框架上下拉组件中a默认没有跳转功能，需手动js安排跳转
+    aTap()
+    function aTap(){
+        $(".list").on("tap","a",function(){
+            let target = this.href;
+            console.log(target)
+            location.href = target;
+        })
+    }
+
     mui.init({
         pullRefresh: {
             container: ".pyg_view",
@@ -14,6 +26,7 @@ $(function () {
                 //  触发下拉刷新时自动触发
                 callback: function () {
                     sendDate.pagenum = 1;
+                    //定义函数作为sendAjax的回调
                     let muban = function (data) {
                         let html = template("goodsTml", {
                             arr: data
@@ -22,7 +35,7 @@ $(function () {
                         mui('.pyg_view').pullRefresh().endPulldownToRefresh();
                         mui('.pyg_view').pullRefresh().refresh(true);
                     }
-
+                    
                     sendAjax(muban);
                 }
             },
@@ -41,6 +54,7 @@ $(function () {
                             let html = template("goodsTml", {
                                 arr: data
                             });
+                            //第二次时用append
                             $('.list').append(html);
                             mui(".pyg_view").pullRefresh().endPullupToRefresh(false);
 
@@ -67,9 +81,6 @@ $(function () {
 
                     func(res.data.goods);
 
-                    if (sendDate.pagenum == totalPages) {
-                        mui(".pyg_view").pullRefresh().endPullupToRefresh(true);
-                    }
                 }
             }
         });

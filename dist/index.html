@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div class="loadding"></div>
     <header class="pyg_header">
     <div class="mui-input-row mui-search">
         <input type="search" class="mui-input-clear" placeholder="">
@@ -48,7 +49,7 @@
         <i class="fa fa-shopping-cart"></i>
         <div>购物车</div>
     </a>
-    <a href="javascript:;">
+    <a href="login.html">
         <i class="fa fa-user"></i>
         <div>我的</div>
     </a>
@@ -77,7 +78,7 @@
           <ul>
             {{each value1.goods value2 index2}}
             <li>
-              <a href="javascript:;">
+              <a href="goods_detail.html?goods_id={{value2.goods_id}}">
                 <img src="{{value2.goods_small_logo}}" alt="">
                 <div>{{value2.goods_name}}</div>
                 <div>￥{{value2.goods_price}}</div>

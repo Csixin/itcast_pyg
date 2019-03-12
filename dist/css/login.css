@@ -89,5 +89,16 @@ ul {
   -webkit-animation: fa-spin 1s infinite linear;
           animation: fa-spin 1s infinite linear;
 }
+.pyg_view .mui-input-group {
+  margin: 10px;
+  margin-bottom: 0;
+}
+.pyg_view .login-tools {
+  padding: 0 10px;
+}
+.pyg_view .login-tools a {
+  display: block;
+  margin-top: 15px;
+}
 
-/*# sourceMappingURL=common.css.map */
+/*# sourceMappingURL=login.css.map */

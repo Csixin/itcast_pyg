@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <div class="loadding"></div>
     <header class="pyg_goods_header">
         <span>搜索</span>
         <i class="fa fa-search"></i>
@@ -38,7 +38,7 @@
         <i class="fa fa-shopping-cart"></i>
         <div>购物车</div>
     </a>
-    <a href="javascript:;">
+    <a href="login.html">
         <i class="fa fa-user"></i>
         <div>我的</div>
     </a>
@@ -47,7 +47,7 @@
     <script type="text/html" id="goodsTml">
         {{each arr value index}}
         <li>
-                <a href="javascript:;">
+                <a href="goods_detail.html?goods_id={{value.goods_id}}">
                     <div class="list_left">
                         <img src="{{value.goods_small_logo}}"
                             alt="">
