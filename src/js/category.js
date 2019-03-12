@@ -4,8 +4,27 @@ $(function () {
     var CateDatas;
 
     function init() {
-        cates();
+        renderDate();
         leftTap();
+    }
+
+    function renderDate(){
+        //获取会话储存，判断是否要发请求
+        let sessStr = sessionStorage.getItem("cates");
+        if(!sessStr){
+            cates();
+        }else{
+            let sessObj = JSON.parse(sessStr);
+            if(Date.now()-sessObj.time > 5000){
+                console.log("数据过期")
+                cates();
+            } else{
+                console.log("使用会话储存")
+                CateDatas = sessObj.data;
+                getLeft();
+                getRight(0);
+            }
+        }
     }
 
     function cates() {
@@ -19,6 +38,9 @@ $(function () {
                     getLeft();
 
                     getRight(0);
+                    let sessionObj = {data:CateDatas,time:Date.now()};
+                    sessionStorage.setItem("cates",JSON.stringify(sessionObj));
+                    //本地存储
                 }
             }
         });
@@ -33,7 +55,7 @@ $(function () {
           });
     }
 
-
+  
     function getLeft() {
         let arr = CateDatas.data;
         let html = ``;
@@ -47,6 +69,7 @@ $(function () {
             `
         }
         $('.left_memu').html(html);
+        var leftScroll = new IScroll('.left_box')
     }
 
     function getRight(i) {
@@ -54,7 +77,16 @@ $(function () {
         let rightHtml = template("cateTml", {
             arr: data
         });
-        $('.right_item').html(rightHtml)
+        $('.right_item').html(rightHtml);
+        let img = $('.item_list img');
+        //iscoll 在图片未完全load完前触发会导致滑动区域错误
+        img.on('load',() => {
+            img.length --;
+            if(img.length == 0){
+                var rightScroll = new IScroll('.right_box');
+            }
+        })
+        
     }
 
 

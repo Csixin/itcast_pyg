@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>itcast-品优购-分类页</title>
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/goods_list.css">
+</head>
+
+<body>
+
+    <header class="pyg_goods_header">
+        <span>搜索</span>
+        <i class="fa fa-search"></i>
+    </header>
+    <div class="pyg_view">
+        <div>
+            <ul class="list">
+
+            </ul>
+        </div>
+    </div>
+    @@include("pyg_footer.html")
+
+    <script type="text/html" id="goodsTml">
+        {{each arr value index}}
+        <li>
+                <a href="javascript:;">
+                    <div class="list_left">
+                        <img src="{{value.goods_small_logo}}"
+                            alt="">
+                    </div>
+                    <div class="list_right">
+                        <div class="list_name">
+                            {{value.goods_name}}
+                        </div>
+                        <div class="list_price">
+                            ￥{{value.goods_price}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {{/each}}
+    </script>
+
+</body>
+
+</html>
+<script src="./lib/arttemplate/template-web.js"></script>
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.js"></script>
+<script src="./lib/iscroll/iscroll.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/goods_list.js"></script>

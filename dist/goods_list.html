@@ -9,28 +9,19 @@
     <link rel="stylesheet" href="./lib/mui/css/mui.css">
     <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/category.css">
+    <link rel="stylesheet" href="./css/goods_list.css">
 </head>
 
 <body>
-    <header class="pyg_header">
-    <div class="mui-input-row mui-search">
-        <input type="search" class="mui-input-clear" placeholder="">
-    </div>
-</header>
+
+    <header class="pyg_goods_header">
+        <span>搜索</span>
+        <i class="fa fa-search"></i>
+    </header>
     <div class="pyg_view">
-        <div class="left_box">
-            <ul class="left_memu">
-            </ul>
-        </div>
-        <div class="right_box">
-            <ul>
-                <li>
+        <div>
+            <ul class="list">
 
-
-                    <div class="right_item">
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
@@ -53,21 +44,27 @@
     </a>
 </footer>
 
-    <script type="text/html" id="cateTml">
+    <script type="text/html" id="goodsTml">
         {{each arr value index}}
-        <div class="item_title">{{value.cat_name}}</div>
-        <ul class="item_list">
-            {{each value.children value2 index2}}
-            <li>
-                <a href="goods_list.html?cid={{value2.cat_id}}">
-                    <img src="http://api.pyg.ak48.xyz/{{value2.cat_icon}}" alt="">
-                    <div class="item_name">{{value2.cat_name}}</div>
+        <li>
+                <a href="javascript:;">
+                    <div class="list_left">
+                        <img src="{{value.goods_small_logo}}"
+                            alt="">
+                    </div>
+                    <div class="list_right">
+                        <div class="list_name">
+                            {{value.goods_name}}
+                        </div>
+                        <div class="list_price">
+                            ￥{{value.goods_price}}
+                        </div>
+                    </div>
                 </a>
             </li>
-            {{/each}}
-        </ul>
         {{/each}}
     </script>
+
 </body>
 
 </html>
@@ -76,4 +73,4 @@
 <script src="./lib/zepto/zepto.js"></script>
 <script src="./lib/iscroll/iscroll.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/category.js"></script>
+<script src="./js/goods_list.js"></script>

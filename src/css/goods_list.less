@@ -1,0 +1,71 @@
+.pyg_goods_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0094ff;
+    height: 45px;
+    color: #fff;
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    i {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.pyg_view {
+    background-color: #fff;
+    height: 100%;
+    position: relative;
+    .list {
+        li {
+            a {
+                padding: 5px;
+                display: flex;
+                border-bottom: 5px solid #ccc;
+                .list_left {
+                    flex: 1;
+                    text-align: center;
+                    img {
+                        width: 80%;
+                    }
+                }
+
+                .list_right {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    .list_name{
+                        height: 50px;
+                        line-height: 25px;
+                        width: 160px;
+                        display: -webkit-box;
+                        overflow: hidden;
+                        white-space: normal!important;
+                        text-overflow: ellipsis;
+                        word-wrap: break-word;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        color: #000;
+                        font-size: 14px;
+                    }
+                    .list_price{
+                        font-size: 16px;
+                        color: #f00;
+                    }
+                }
+            }
+
+        }
+    }
+}
