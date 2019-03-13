@@ -52,7 +52,6 @@ $(function () {
         if(res.meta.status == 200){
             let data = res.data;
             let html = template("proTpl",{arr:data});
-            console.log(html)
             $('.pyg_items').html(html);
         }
 

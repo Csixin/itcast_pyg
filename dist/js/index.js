@@ -56,7 +56,6 @@ $(function () {
           var html = template("proTpl", {
             arr: data
           });
-          console.log(html);
           $('.pyg_items').html(html);
         }
       }
